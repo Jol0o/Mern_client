@@ -13,6 +13,18 @@ export const getAllReviews = async (page) => {
     }
 }
 
+export const searchReviews = async (q, page) => {
+    console.log(q)
+    const response = await axios.get(`${URL}/api/reviews/search`, {
+        params: { q, page }
+    });
+    if (response.status === 200) {
+        return response
+    } else {
+        return response
+    }
+}
+
 export const getUserData = async (token) => {
     try {
         const response = await axios.get(`${URL}/api/reviews/user`, {
