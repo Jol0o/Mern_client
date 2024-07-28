@@ -8,7 +8,7 @@ import { Button } from '../ui/button';
 import { User } from 'lucide-react';
 
 function HeaderComponent() {
-    const auth = useAuth()
+    const { auth } = useAuth()
     return (
         <header className="max-w-[1300px] w-full m-auto flex justify-between items-center py-5 px-3">
             <Link href='/' >
@@ -16,11 +16,17 @@ function HeaderComponent() {
             </Link>
             <div className="flex items-center gap-2">
                 <Darkmode />
-                {auth && <Link href='/profile' >
+                {auth ? <Link href='/profile' >
                     <Button size="icon">
                         <User />
                     </Button>
-                </Link>}
+                </Link> :
+                    <Link href='/register' >
+                        <Button >
+                            Login
+                        </Button>
+                    </Link>
+                }
             </div>
         </header>
     )

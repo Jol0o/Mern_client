@@ -21,6 +21,7 @@ function Page() {
     }, [loading, auth, router])
 
     if (loading) return <Loader />
+
     return (
         <>
             <UserProfile user={user} edit />

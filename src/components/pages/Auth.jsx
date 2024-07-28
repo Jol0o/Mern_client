@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { useEffect, useState } from "react"
 import { createAccount, loginUser } from "@/lib/api"
 import { toast } from 'sonner';
+import { useRouter } from "next/navigation"
 
 export function Auth() {
     const [tab, setTab] = useState('register')
@@ -16,6 +17,7 @@ export function Auth() {
         email: '',
         password: '',
     })
+    const router = useRouter()
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -50,6 +52,7 @@ export function Auth() {
                     setTab('login')
                 } else {
                     toast('You have successfully login.')
+                    router.push('/')
                 }
             }
         } catch (err) {
@@ -120,9 +123,9 @@ export function Auth() {
                 <Image
                     src="https://images.pexels.com/photos/14837630/pexels-photo-14837630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="Image"
-                    width="1920"
-                    height="1080"
-                    className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+                    width={1000}
+                    height={1000}
+                    className="h-full w-full object-cover dark:brightness-[0.2] max-h-screen dark:grayscale"
                 />
             </div>
         </div>
