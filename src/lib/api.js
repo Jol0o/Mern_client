@@ -30,6 +30,23 @@ export const getUserData = async (token) => {
     }
 };
 
+export const getAllUserReviewsById = async (id, token) => {
+    try {
+        const response = await axios.get(`${URL}/api/reviews/user/${id}`, {
+            headers: {
+                'x-auth-token': token
+            }
+        });
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            return response.data.msg;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const createReview = async (data, token) => {
 
     const response = await axios.post(

@@ -1,10 +1,11 @@
+import Profile from '@/components/pages/Profile'
 import React from 'react'
 
 function page({ params }) {
     const { id } = params
-    console.log(id)
+
     return (
-        <div>page{id}</div>
+        <Profile id={id} />
     )
 }
 
